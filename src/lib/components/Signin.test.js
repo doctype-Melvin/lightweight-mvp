@@ -1,5 +1,5 @@
 import Signin from "./Signin.svelte";
-import { render, screen, getByRole } from "@testing-library/svelte";
+import { render, screen, fireEvent } from "@testing-library/svelte";
 import { vi, describe, test, expect } from "vitest";
 
 describe('Signin component', () => {
@@ -15,15 +15,11 @@ describe('Signin component', () => {
     })
 
     test('clicking submit button should call submit function', async () => {
-        const { component } = render(Signin)
-        const submit = vi.fn((event) => {
-            event.preventDefault()
-            console.log('Mocked submit function')
-        })
-        
-        component.$on('submit', submit)
-        expect(submit).toHaveBeenCalledTimes(0)
-        // await screen.getByRole('button', { name: 'Sign in' }).click()
-        // expect(submit).toHaveBeenCalledTimes(1)
+        const spy = vi.spyOn(console, 'log');
+
+        render(Signin);
+        const form = screen.getByTestId('sign-in-form')
+        await fireEvent.submit(form);
+        expect(spy).toHaveBeenCalled();
     })
 })
