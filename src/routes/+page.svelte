@@ -4,13 +4,14 @@
 	import { loggedIn } from "$lib/utils/stores";
 	import { goto } from "$app/navigation";
 	import { onMount } from "svelte";
+	import MenuCard from "$lib/components/MenuCard/MenuCard.svelte";
 
 	onMount(() => {
 		console.log('Home screen mounted')
 		if (!$loggedIn) {
 			setTimeout(() => {
 				goto('/signin')
-			}, 2500)
+			}, 2000)
 		}
 	})
 
@@ -18,28 +19,33 @@
 	const data = [
 		{
 			id: 1,
-			title: 'Current Session',
+			title: 'Feature Card - Default: Current Workout Session',
 			href: '/current'
 		},
 		{
 			id: 2,
-			title: 'Browse Templates',
+			title: 'Templates',
 			href: '/templates'
 		},
 		{
 			id: 3,
-			title: 'Create New Template',
-			href: '/create'
+			title: 'Random Workout Session',
+			href: '/random'
 		},
 		{
 			id: 4,
-			title: 'Random Workout Session',
-			href: '/random'
+			title: 'Timer',
+			href: '/timer'
 		},
 		{
 			id: 5, 
 			title: 'Analytics',
 			href: '/analytics'
+		},
+		{
+			id: 6,
+			title: 'Log other activity',
+			href: '/misc-log'
 		}
 	]
 
@@ -55,7 +61,9 @@
 	{#if $loggedIn}
 	<div class="grid-container">
 		{#each data as item}
-			<h2><a href={`${item.href}`}>{item.title}</a></h2>
+		<div>
+			<MenuCard href={item.href} title={item.title} />
+		</div>
 		{/each}
 	</div>
 	{/if}
@@ -68,15 +76,26 @@
 	.grid-container {
 		display: grid;
 		grid-template-columns: 1fr 1fr;
-		grid-template-rows: repeat(auto-fill, 1fr);
+		grid-template-rows: 1fr .75fr .75fr .5fr;
 		padding: 5px 10px;
 		height: 100vh;
 		text-align: center;
 		gap: 10px;
 	}
+	
+	.grid-container div {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
 
 	.grid-container :first-child {
 		grid-column: span 2;
 		background-color: aliceblue;
+	}
+
+	.grid-container :last-child {
+		grid-column: span 2;
+		background-color: #dcebab;
 	}
 </style>
