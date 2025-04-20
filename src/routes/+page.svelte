@@ -6,6 +6,7 @@
 	import { onMount } from "svelte";
 	import MenuCard from "$lib/components/MenuCard/MenuCard.svelte";
 
+	/*
 	onMount(() => {
 		console.log('Home screen mounted')
 		if (!$loggedIn) {
@@ -14,7 +15,7 @@
 			}, 2000)
 		}
 	})
-
+*/
 	
 	const data = [
 		{
@@ -58,6 +59,14 @@
 </svelte:head>
 
 <section>
+	<div class="grid-container">
+		{#each data as item}
+		<div>
+			<MenuCard href={item.href} title={item.title} />
+		</div>
+		{/each}
+	</div>
+	<!-- Mute the log in
 	{#if $loggedIn}
 	<div class="grid-container">
 		{#each data as item}
@@ -67,9 +76,11 @@
 		{/each}
 	</div>
 	{/if}
-	{#if !$loggedIn}
+
+		{#if !$loggedIn}
 		<h2>Please sign in to continue</h2>
-	{/if}
+		{/if}
+		-->
 </section>
 
 <style>
