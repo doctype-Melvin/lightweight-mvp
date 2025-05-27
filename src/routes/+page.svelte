@@ -1,5 +1,4 @@
-<script>
-	// @ts-nocheck
+<script lang="ts">
 
 	import { loggedIn } from "$lib/utils/stores";
 	import { goto } from "$app/navigation";
@@ -45,7 +44,7 @@
 		},
 		{
 			id: 6,
-			title: 'Log other activity',
+			title: 'Recently logged workouts',
 			href: '/misc-log'
 		}
 	]
@@ -98,15 +97,17 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
+		background-color: #908695;
+		border-radius: 5px;
 	}
 
 	.grid-container :first-child {
 		grid-column: span 2;
-		background-color: aliceblue;
+		background-color: #e0f0fe;
 	}
 
 	.grid-container :last-child {
 		grid-column: span 2;
-		background-color: #dcebab;
+		background-color: #e8d5b5;
 	}
 </style>

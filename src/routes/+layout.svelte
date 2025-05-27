@@ -13,5 +13,7 @@
 </div>
 
 <style>
-
+	.app {
+		background-color: #23013c;
+	}
 </style>

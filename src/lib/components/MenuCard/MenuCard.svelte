@@ -1,17 +1,18 @@
-<script>
-    // @ts-nocheck
-
+<script lang="ts">
     export let href
     export let title
 </script>
 
 <section>
-    <h2><a href={href}>{title}</a></h2>
+    <a href={href}>
+       {title}
+    </a>
 </section>
 
 <style>
     section {
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
     }
