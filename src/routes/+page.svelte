@@ -24,8 +24,8 @@
 		},
 		{
 			id: 2,
-			title: 'Templates',
-			href: '/templates'
+			title: 'Create Templates',
+			href: '/compose'
 		},
 		{
 			id: 3,
