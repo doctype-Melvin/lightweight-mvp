@@ -1,3 +1,9 @@
+# Lightweight MVP
+
+This app has been on my mind for quite a while now. Recently I've decided
+to brush up my web development skills and go back to the roots
+and start this project over using React and TypeScript. 
+
 # create-svelte
 
 Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
