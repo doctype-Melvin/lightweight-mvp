@@ -33,7 +33,11 @@ export default function ExerciseForm({ label, onSave }: ExerciseFormProps) {
         <h3>Add exercise</h3>
         <label htmlFor="exercise-name">
             { label }
-            <input id="exercise-name" value={name} type="text"/>
+            <input 
+            onChange={(e) => setName(e.target.value)}
+            id="exercise-name" 
+            value={name} 
+            type="text"/>
         </label>
         <button onClick={handleSubmit}>Save Exercise</button>
         </>

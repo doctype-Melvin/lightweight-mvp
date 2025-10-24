@@ -33,7 +33,7 @@ describe("Exercise Form", () => {
         fireEvent.click(saveButton);
 
         expect(mockSave).toHaveBeenCalledTimes(1);
-        //expect(mockSave).toHaveBeenCalledWith('Chin Up');
+        expect(mockSave).toHaveBeenCalledWith({name: 'Chin Up'});
         
         expect(userInput).toHaveValue('');
     })
