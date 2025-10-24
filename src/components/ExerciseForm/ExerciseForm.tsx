@@ -1,15 +1,41 @@
-export default function ExerciseForm() {
+import { useState } from "react";
 
-    const handleClick = () => console.log('Exercise')
+interface ExerciseData {
+    name: string;
+}
+
+interface ExerciseFormProps {
+    label: string;
+    onSave: (exercise: ExerciseData) => void
+}
+
+export default function ExerciseForm({ label, onSave }: ExerciseFormProps) {
+
+    const [name, setName] = useState('');
+
+    const resetInput = () => {
+        setName('');
+    }
+
+    const handleSubmit = (e: React.FormEvent) => {
+        e.preventDefault()
+
+        const newInput: ExerciseData = {
+            name
+        }
+
+        onSave(newInput)
+        resetInput()
+    }
 
     return (
         <>
         <h3>Add exercise</h3>
-        <label for="exercise-name">
-            Exercise Name
+        <label htmlFor="exercise-name">
+            { label }
+            <input id="exercise-name" value={name} type="text"/>
         </label>
-            <input id="exercise-name" type="text"/>
-        <button onClick={handleClick}>Save Exercise</button>
+        <button onClick={handleSubmit}>Save Exercise</button>
         </>
     )
 }
