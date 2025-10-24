@@ -32,8 +32,8 @@
         quickly generate workouts based on your preferences.
     </p>
     <div>
-        <h2 class="template-title" contenteditable="true" on:blur={((e) => {
-            console.log(e.target.textContent)
+        <h2 class="template-title" contenteditable="true" on:blur={((event: Event) => {
+            console.log(event.target.textContent)
             })}>
             {templateData.title}
         </h2>
