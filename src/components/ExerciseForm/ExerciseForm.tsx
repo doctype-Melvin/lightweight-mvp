@@ -1,8 +1,5 @@
 import { useState } from "react";
-
-interface ExerciseData {
-    name: string;
-}
+import type { ExerciseData } from "../../types";
 
 interface ExerciseFormProps {
     label: string;
