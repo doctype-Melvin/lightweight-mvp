@@ -1,9 +1,10 @@
 import { create } from "zustand";
+import type { ExerciseItem } from "../types";
 
 interface ExerciseStore {
-    list: string[],
+    list: ExerciseItem[],
     size: number,
-    addItem: (exercise: string) => void
+    addItem: (exercise: ExerciseItem) => void
 }
 
 export const useExerciseStore = create<ExerciseStore>()((set) => ({

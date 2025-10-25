@@ -14,7 +14,7 @@ describe('useExerciseStore...', () => {
     });
 
     it('has a method to add an item to the array', () => {
-        const newItem = "Chin Up"
+        const newItem = {name: "Chin Up"}
         const state = useExerciseStore.getState();
         
         state.addItem(newItem)
@@ -27,10 +27,11 @@ describe('useExerciseStore...', () => {
     it('increases the store size property by one when adding an item', () => {
         const state = useExerciseStore.getState();
 
-        state.addItem('Push Up')
+        state.addItem({name: "Push Up"})
 
         const newState = useExerciseStore.getState();
 
         expect(newState.size).toBe(1)
     })
+
 });

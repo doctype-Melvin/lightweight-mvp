@@ -1,15 +1,26 @@
 import { expect, test, describe, vi } from "vitest";
 import { render, screen, fireEvent } from "@testing-library/react";
 import ExerciseForm from "./ExerciseForm"
+import { useExerciseStore } from "../../stores";
 
 describe("Exercise Form", () => {
     // Calling on submit
-    const mockSave = vi.fn()
+    const mockAddItem = vi.fn()
+
+    // create a mocked useExerciseStore state
+    // to test if actions are called
+    beforeAll(() => {
+        vi.spyOn(useExerciseStore, 'getState').mockReturnValue({
+            list: [],
+            size:0,
+            addItem: mockAddItem
+        })
+    })
 
     // Render the component before each test and clear mock
     beforeEach(() => {
-        render(<ExerciseForm label="Exercise name" onSave={mockSave} />)
-        mockSave.mockClear
+        render(<ExerciseForm label="Exercise name" />)
+        mockAddItem.mockClear
     })
 
     test('renders description and input fields', () => {
@@ -18,7 +29,7 @@ describe("Exercise Form", () => {
         // there is a label for the input
         expect(screen.getByLabelText(/exercise name/i)).toBeInTheDocument();
         // there is a button
-        expect(screen.getByRole('button', { name: /save exercise/i})).toBeInTheDocument();
+        expect(screen.getByRole('button', { name: /add exercise/i})).toBeInTheDocument();
     })
 
     test('clicking save calls', () => {
@@ -29,11 +40,11 @@ describe("Exercise Form", () => {
         fireEvent.change(userInput, { target: { value: "Chin Up" }});
 
         // click the associated save button
-        const saveButton = screen.getByRole('button', { name: /save exercise/i})
+        const saveButton = screen.getByRole('button', { name: /add exercise/i})
         fireEvent.click(saveButton);
 
-        expect(mockSave).toHaveBeenCalledTimes(1);
-        expect(mockSave).toHaveBeenCalledWith({name: 'Chin Up'});
+        expect(mockAddItem).toHaveBeenCalledTimes(1);
+        expect(mockAddItem).toHaveBeenCalledWith({name: "Chin Up"});
         
         expect(userInput).toHaveValue('');
     })

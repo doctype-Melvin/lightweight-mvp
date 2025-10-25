@@ -1,4 +1,4 @@
-// Shape of the ExerciseData object
+// Shape of the ExerciseItem object
 export interface ExerciseItem {
     name: string;
 }

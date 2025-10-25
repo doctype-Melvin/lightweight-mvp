@@ -1,12 +1,12 @@
 import { useState } from "react";
 import type { ExerciseItem } from "../../types";
+import { useExerciseStore } from "../../stores";
 
 interface ExerciseFormProps {
     label: string;
-    onSave: (exercise: ExerciseItem) => void
 }
 
-export default function ExerciseForm({ label, onSave }: ExerciseFormProps) {
+export default function ExerciseForm({ label }: ExerciseFormProps) {
 
     const [name, setName] = useState('');
 
@@ -16,12 +16,12 @@ export default function ExerciseForm({ label, onSave }: ExerciseFormProps) {
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault()
-
+        const store = useExerciseStore.getState()
         const newInput: ExerciseItem = {
             name
         }
 
-        onSave(newInput)
+        store.addItem(newInput)
         resetInput()
     }
 
@@ -36,7 +36,7 @@ export default function ExerciseForm({ label, onSave }: ExerciseFormProps) {
             value={name} 
             type="text"/>
         </label>
-        <button onClick={handleSubmit}>Save Exercise</button>
+        <button onClick={handleSubmit}>Add Exercise</button>
         </>
     )
 }
