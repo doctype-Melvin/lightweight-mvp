@@ -1,9 +1,9 @@
 import { useState } from "react";
-import type { ExerciseData } from "../../types";
+import type { ExerciseItem } from "../../types";
 
 interface ExerciseFormProps {
     label: string;
-    onSave: (exercise: ExerciseData) => void
+    onSave: (exercise: ExerciseItem) => void
 }
 
 export default function ExerciseForm({ label, onSave }: ExerciseFormProps) {
@@ -17,7 +17,7 @@ export default function ExerciseForm({ label, onSave }: ExerciseFormProps) {
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault()
 
-        const newInput: ExerciseData = {
+        const newInput: ExerciseItem = {
             name
         }
 
