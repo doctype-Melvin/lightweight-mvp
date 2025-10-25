@@ -2,6 +2,8 @@ import { useState } from "react";
 import type { ExerciseItem } from "../../types";
 import { useExerciseStore } from "../../stores";
 
+// This component specializes in user input
+
 interface ExerciseFormProps {
     label: string;
 }

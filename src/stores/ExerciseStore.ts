@@ -14,4 +14,5 @@ export const useExerciseStore = create<ExerciseStore>()((set) => ({
         list: state.list.concat(exercise),
         size: state.size+1
     }))
+    // add remove action which might require an uid
 }))

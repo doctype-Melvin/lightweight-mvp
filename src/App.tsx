@@ -1,6 +1,7 @@
 import './App.css'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import MainLayout from './views/Layout/MainLayout'
+import CreateProgram from './views/Create/CreateProgram'
 import Home from './views/Home/Home'
 
 
@@ -14,6 +15,7 @@ function App() {
         which are nested withing the MainLayout component */}
         <Route path='/' element={<MainLayout />}>
           <Route index element={<Home />} />
+          <Route path='/create' element={ <CreateProgram />} />
         </Route>
       </Routes>
     </BrowserRouter>
