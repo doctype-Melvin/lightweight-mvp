@@ -27,7 +27,7 @@ describe("Exercise Form", () => {
         // there is a label for the input
         expect(screen.getByLabelText(/exercise name/i)).toBeInTheDocument();
         // there is a button
-        expect(screen.getByRole('button', { name: /add exercise/i})).toBeInTheDocument();
+        expect(screen.getByRole('button', { name: /add/i})).toBeInTheDocument();
     })
 
     test('clicking save calls', () => {
@@ -38,7 +38,7 @@ describe("Exercise Form", () => {
         fireEvent.change(userInput, { target: { value: "Chin Up" }});
 
         // click the associated save button
-        const saveButton = screen.getByRole('button', { name: /add exercise/i})
+        const saveButton = screen.getByRole('button', { name: /add/i})
         fireEvent.click(saveButton);
 
         expect(mockAddItem).toHaveBeenCalledTimes(1);
