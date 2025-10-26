@@ -1,6 +1,7 @@
 import { useState } from "react";
 import type { ExerciseItem } from "../../types";
 import { useExerciseStore } from "../../stores";
+import { TextField } from "@mui/material";
 
 // This component specializes in user input
 
@@ -28,17 +29,14 @@ export default function ExerciseForm({ label }: ExerciseFormProps) {
     }
 
     return (
-        <>
-        <h3>Add exercise</h3>
-        <label htmlFor="exercise-name">
-            { label }
-            <input 
-            onChange={(e) => setName(e.target.value)}
-            id="exercise-name" 
-            value={name} 
-            type="text"/>
-        </label>
+        <section>
+        <TextField 
+        id="outlined-basic" 
+        label="Exercise Name" 
+        variant="outlined" 
+        value={name}
+        onChange={(e) => setName(e.target.value)}/>
         <button onClick={handleSubmit}>Add Exercise</button>
-        </>
+        </section>
     )
 }

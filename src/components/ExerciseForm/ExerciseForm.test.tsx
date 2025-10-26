@@ -24,8 +24,6 @@ describe("Exercise Form", () => {
     })
 
     test('renders description and input fields', () => {
-        // there is a heading
-        expect(screen.getByRole('heading', { name: /add exercise/i})).toBeInTheDocument();
         // there is a label for the input
         expect(screen.getByLabelText(/exercise name/i)).toBeInTheDocument();
         // there is a button
