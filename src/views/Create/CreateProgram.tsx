@@ -3,12 +3,14 @@
 // define their pool of exercises for their program. It features an
 // input field and a button, and renders exercises as their added to the pool
 import ExerciseForm from "../../components/ExerciseForm/ExerciseForm"
+import LinkButton from "../../components/NavigationButton/LinkButton"
 import { useExerciseStore } from "../../stores"
 
 export default function CreateProgram() {
     // useExercisesStore is only read in this view component
     return (
         <>
+        <LinkButton to="/" text="home" />
         <ExerciseForm label="Exercise Name" />
         </>
     )

@@ -15,9 +15,7 @@ describe("LinkButton Component", () => {
         // Wrap component in MemoryRouter for testing React Router components
         render(
             <MemoryRouter>
-                <LinkButton to={targetPath}>
-                {buttonText}
-                </LinkButton>
+                <LinkButton to={targetPath} text={buttonText} />
             </MemoryRouter>
         )
 

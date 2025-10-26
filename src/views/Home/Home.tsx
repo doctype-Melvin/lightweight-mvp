@@ -4,9 +4,9 @@ export default function Home(){
 
     return (
         <>
-            <LinkButton to="/log">log session</LinkButton>
-            <LinkButton to="/stats">view statistics</LinkButton>
-            <LinkButton to="/create">create program</LinkButton>
+            <LinkButton to="/log" text="log session" />
+            <LinkButton to="/stats" text="view stats" />
+            <LinkButton to="/create" text="create program" />
         </>
     )
 }

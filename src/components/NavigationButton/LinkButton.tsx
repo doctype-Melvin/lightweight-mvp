@@ -4,14 +4,15 @@ import { Button } from "@mui/material"
 
 interface LinkButtonProps {
     to: string,
-    children: React.ReactNode
+    // children: React.ReactNode,
+    text: string
 }
 
-const LinkButton: React.FC< LinkButtonProps > = (({to, children}) => {
+const LinkButton: React.FC< LinkButtonProps > = (({to, text}) => {
         
         return (
         <Link to={to}>
-            <Button variant="outlined" >{children}</Button>
+            <Button variant="outlined" >{text}</Button>
         </Link>
         )
     })
