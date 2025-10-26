@@ -1,7 +1,7 @@
 import { describe, it, beforeEach, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
-import LinkButton from "./NavigationButton";
+import LinkButton from "./LinkButton";
 
 // Verify two things:
 // The component renders correctly

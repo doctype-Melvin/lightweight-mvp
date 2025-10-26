@@ -1,17 +1,9 @@
 import { Button } from "@mui/material"
 import type React from "react"
 import { Link } from "react-router-dom"
+import LinkButton from "../../components/NavigationButton/LinkButton"
 
 export default function Home(){
-    // Make this button its own component
-    const LinkButton: React.FC< {to: string, children: React.ReactNode }> = (({to, children}) => {
-        
-        return (
-        <Link to={to}>
-            <Button variant="outlined">{children}</Button>
-        </Link>
-        )
-    })
 
     return (
         <>
